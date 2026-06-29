@@ -168,7 +168,7 @@ export interface ProgressPhoto {
   note?: string
 }
 
-export type ThemeName = 'dark' | 'amoled'
+export type ThemeName = 'dark' | 'amoled' | 'light'
 
 /** A workout template (e.g. "Push A") and its planned exercises. */
 export interface TemplateExercise {

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Download, FileText, Moon, MoonStar, Trash2, Upload } from 'lucide-react'
+import { Download, FileText, Moon, MoonStar, Sun, Trash2, Upload } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import {
   ACTIVITY_LABELS,
@@ -247,6 +247,9 @@ export default function Settings() {
       <div className="card">
         <div className="section-title">Appearance</div>
         <div className="row wrap" style={{ gap: 6 }}>
+          <span className={`chip ${theme === 'light' ? 'active' : ''}`} onClick={() => setTheme('light')}>
+            <Sun size={14} /> Light
+          </span>
           <span className={`chip ${theme === 'dark' ? 'active' : ''}`} onClick={() => setTheme('dark')}>
             <Moon size={14} /> Dark
           </span>
@@ -255,7 +258,8 @@ export default function Settings() {
           </span>
         </div>
         <div className="faint" style={{ fontSize: 12, marginTop: 8 }}>
-          AMOLED uses pure black (#000) — saves battery on OLED phone screens at the gym.
+          Light for daytime; Dark for general use; AMOLED is pure black (#000) — saves
+          battery on OLED phone screens at the gym.
         </div>
       </div>
 

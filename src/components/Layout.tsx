@@ -26,6 +26,10 @@ export default function Layout() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
+    const color = theme === 'light' ? '#f4f6fa' : theme === 'amoled' ? '#000000' : '#0f1115'
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', color)
   }, [theme])
 
   return (

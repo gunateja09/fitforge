@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Moon } from 'lucide-react'
+import AppleEmoji from './AppleEmoji'
 import { dailyLogFor, useStore } from '../store/useStore'
 import { shiftDay, todayStr } from '../lib/dates'
 import type { Rating } from '../types'
@@ -47,17 +48,18 @@ function Rater({
           onClick={() => onPick(n as Rating)}
           title={`${n}/5`}
           style={{
-            width: 38,
-            height: 38,
+            width: 40,
+            height: 40,
             borderRadius: 10,
-            fontSize: 18,
+            display: 'grid',
+            placeItems: 'center',
             border: `1px solid ${value === n ? 'var(--accent)' : 'var(--border)'}`,
             background: value === n ? 'var(--accent-soft)' : 'var(--bg)',
-            opacity: value && value !== n ? 0.5 : 1,
+            opacity: value && value !== n ? 0.45 : 1,
             cursor: 'pointer',
           }}
         >
-          {faces[n - 1]}
+          <AppleEmoji emoji={faces[n - 1]} size={22} />
         </button>
       ))}
     </div>
