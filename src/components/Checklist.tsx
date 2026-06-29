@@ -1,6 +1,15 @@
+import { Check, Dumbbell, Beef, Footprints, HeartPulse, Moon, type LucideIcon } from 'lucide-react'
 import { checklistFor, useStore } from '../store/useStore'
 import { CHECKLIST_ITEMS, type ChecklistKey } from '../types'
 import { shiftDay, todayStr } from '../lib/dates'
+
+const ICONS: Record<ChecklistKey, LucideIcon> = {
+  lifts: Dumbbell,
+  protein: Beef,
+  steps: Footprints,
+  cardio: HeartPulse,
+  sleep: Moon,
+}
 
 function isComplete(c: { lifts: boolean; protein: boolean; steps: boolean; cardio: boolean; sleep: boolean }): boolean {
   return c.lifts && c.protein && c.steps && c.cardio && c.sleep
@@ -45,6 +54,7 @@ export default function Checklist() {
       <div className="grid" style={{ gap: 8 }}>
         {CHECKLIST_ITEMS.map((it) => {
           const checked = c[it.key as ChecklistKey]
+          const ItemIcon = ICONS[it.key as ChecklistKey]
           return (
             <button
               key={it.key}
@@ -70,14 +80,12 @@ export default function Checklist() {
                   placeItems: 'center',
                   background: checked ? 'var(--green)' : 'var(--bg-elev-2)',
                   border: `1px solid ${checked ? 'var(--green)' : 'var(--border)'}`,
-                  fontSize: 13,
                   color: '#062',
-                  fontWeight: 800,
                 }}
               >
-                {checked ? '✓' : ''}
+                {checked ? <Check size={15} strokeWidth={3} /> : ''}
               </span>
-              <span style={{ fontSize: 18 }}>{it.ico}</span>
+              <ItemIcon size={17} color="var(--text-dim)" />
               <span style={{ fontWeight: 600, textDecoration: checked ? 'line-through' : 'none', opacity: checked ? 0.7 : 1 }}>
                 {it.label}
               </span>

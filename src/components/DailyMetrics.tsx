@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { Moon } from 'lucide-react'
 import { dailyLogFor, useStore } from '../store/useStore'
 import { shiftDay, todayStr } from '../lib/dates'
 import type { Rating } from '../types'
@@ -90,7 +91,7 @@ export default function DailyMetrics() {
             onChange={(e) => setDailyLog(today, { restDay: e.target.checked })}
             style={{ width: 'auto', marginRight: 4 }}
           />
-          😴 Rest day
+          <Moon size={14} /> Rest day
         </label>
       </div>
 

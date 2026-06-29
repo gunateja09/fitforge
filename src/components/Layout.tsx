@@ -1,15 +1,24 @@
 import { useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
+import {
+  Apple,
+  CalendarDays,
+  Dumbbell,
+  LayoutDashboard,
+  Target,
+  UtensilsCrossed,
+  Zap,
+} from 'lucide-react'
 import { useStore } from '../store/useStore'
 import Fab from './Fab'
 
 const NAV = [
-  { to: '/', label: 'Dashboard', ico: '📊', end: true },
-  { to: '/macros', label: 'Macros', ico: '🍽️' },
-  { to: '/planner', label: 'Planner', ico: '🗓️' },
-  { to: '/workouts', label: 'Workouts', ico: '🏋️' },
-  { to: '/foods', label: 'Foods', ico: '🥫' },
-  { to: '/settings', label: 'Goals', ico: '🎯' },
+  { to: '/', label: 'Dashboard', Icon: LayoutDashboard, end: true },
+  { to: '/macros', label: 'Macros', Icon: UtensilsCrossed },
+  { to: '/planner', label: 'Planner', Icon: CalendarDays },
+  { to: '/workouts', label: 'Workouts', Icon: Dumbbell },
+  { to: '/foods', label: 'Foods', Icon: Apple },
+  { to: '/settings', label: 'Goals', Icon: Target },
 ]
 
 export default function Layout() {
@@ -23,7 +32,9 @@ export default function Layout() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <span className="logo">⚡</span>
+          <span className="logo">
+            <Zap size={16} strokeWidth={2.5} fill="#fff" />
+          </span>
           FitForge
         </div>
         <span className="faint" style={{ fontSize: 12 }}>
@@ -38,7 +49,9 @@ export default function Layout() {
       <nav className="nav">
         {NAV.map((n) => (
           <NavLink key={n.to} to={n.to} end={n.end}>
-            <span className="ico">{n.ico}</span>
+            <span className="ico">
+              <n.Icon size={21} strokeWidth={2} />
+            </span>
             {n.label}
           </NavLink>
         ))}

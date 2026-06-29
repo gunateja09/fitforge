@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Apple, Coffee, Moon, Sandwich, Trash2, type LucideIcon } from 'lucide-react'
 import { useStore, useFoodMap } from '../store/useStore'
 import { effectiveTargets, macrosFor, roundMacros, totalMacros } from '../lib/calc'
 import { todayStr } from '../lib/dates'
@@ -8,11 +9,11 @@ import CalorieRing from '../components/CalorieRing'
 import MacroBar from '../components/MacroBar'
 import LogFoodModal from '../components/LogFoodModal'
 
-const MEALS: { key: MealType; label: string; ico: string }[] = [
-  { key: 'breakfast', label: 'Breakfast', ico: '🌅' },
-  { key: 'lunch', label: 'Lunch', ico: '🥗' },
-  { key: 'dinner', label: 'Dinner', ico: '🍝' },
-  { key: 'snack', label: 'Snacks', ico: '🍎' },
+const MEALS: { key: MealType; label: string; Icon: LucideIcon }[] = [
+  { key: 'breakfast', label: 'Breakfast', Icon: Coffee },
+  { key: 'lunch', label: 'Lunch', Icon: Sandwich },
+  { key: 'dinner', label: 'Dinner', Icon: Moon },
+  { key: 'snack', label: 'Snacks', Icon: Apple },
 ]
 
 export default function Macros() {
@@ -59,7 +60,7 @@ export default function Macros() {
           <div className="card" key={meal.key}>
             <div className="row between" style={{ marginBottom: entries.length ? 8 : 0 }}>
               <div className="row" style={{ gap: 8 }}>
-                <span style={{ fontSize: 18 }}>{meal.ico}</span>
+                <meal.Icon size={18} color="var(--text-dim)" />
                 <b>{meal.label}</b>
                 {entries.length > 0 && (
                   <span className="faint">· {mt.kcal} kcal</span>
@@ -87,7 +88,7 @@ export default function Macros() {
                     onClick={() => removeFoodEntry(e.id)}
                     aria-label="Remove"
                   >
-                    🗑️
+                    <Trash2 size={15} />
                   </button>
                 </div>
               )

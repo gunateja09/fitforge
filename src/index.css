@@ -153,8 +153,10 @@ select {
 }
 
 .nav a .ico {
-  font-size: 19px;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
 }
 
 .nav a.active {
@@ -555,6 +557,9 @@ select:focus {
 }
 
 .tabs .tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 7px 14px;
   border-radius: 999px;
   background: var(--bg-elev);

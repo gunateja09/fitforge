@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { Download, FileText, Moon, MoonStar, Trash2, Upload } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import {
   ACTIVITY_LABELS,
@@ -235,7 +236,7 @@ export default function Settings() {
                     </div>
                   </div>
                   <button className="icon-btn" onClick={() => removeMeasurement(mm.id)} aria-label="Remove">
-                    🗑️
+                    <Trash2 size={15} />
                   </button>
                 </div>
               ))}
@@ -247,10 +248,10 @@ export default function Settings() {
         <div className="section-title">Appearance</div>
         <div className="row wrap" style={{ gap: 6 }}>
           <span className={`chip ${theme === 'dark' ? 'active' : ''}`} onClick={() => setTheme('dark')}>
-            🌙 Dark
+            <Moon size={14} /> Dark
           </span>
           <span className={`chip ${theme === 'amoled' ? 'active' : ''}`} onClick={() => setTheme('amoled')}>
-            ⬛ AMOLED black
+            <MoonStar size={14} /> AMOLED black
           </span>
         </div>
         <div className="faint" style={{ fontSize: 12, marginTop: 8 }}>
@@ -267,9 +268,9 @@ export default function Settings() {
           cache wipes local data.
         </p>
         <div className="row wrap" style={{ gap: 8 }}>
-          <button className="btn" onClick={() => exportFullBackup()}>⬇️ Export backup (+ photos)</button>
-          <button className="btn" onClick={() => exportStrengthCSV(strengthLog)}>📄 Training CSV</button>
-          <button className="btn" onClick={() => fileRef.current?.click()}>⬆️ Import backup</button>
+          <button className="btn" onClick={() => exportFullBackup()}><Download size={15} /> Export backup (+ photos)</button>
+          <button className="btn" onClick={() => exportStrengthCSV(strengthLog)}><FileText size={15} /> Training CSV</button>
+          <button className="btn" onClick={() => fileRef.current?.click()}><Upload size={15} /> Import backup</button>
           <input
             ref={fileRef}
             type="file"

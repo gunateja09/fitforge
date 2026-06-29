@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Dumbbell, Plus, UtensilsCrossed } from 'lucide-react'
 import LogFoodModal from './LogFoodModal'
 import { todayStr } from '../lib/dates'
 
@@ -39,7 +40,7 @@ export default function Fab() {
                 setShowFood(true)
               }}
             >
-              🍽️ Quick food
+              <UtensilsCrossed size={16} /> Quick food
             </button>
             <button
               className="btn"
@@ -49,7 +50,7 @@ export default function Fab() {
                 navigate('/workouts')
               }}
             >
-              🏋️ Log workout
+              <Dumbbell size={16} /> Log workout
             </button>
           </>
         )}
@@ -63,14 +64,14 @@ export default function Fab() {
             border: 'none',
             background: 'linear-gradient(135deg, var(--accent), #7c5cff)',
             color: '#fff',
-            fontSize: 28,
-            lineHeight: 1,
+            display: 'grid',
+            placeItems: 'center',
             boxShadow: 'var(--shadow)',
             transform: open ? 'rotate(45deg)' : 'none',
             transition: 'transform 0.2s',
           }}
         >
-          +
+          <Plus size={28} strokeWidth={2.5} />
         </button>
       </div>
 

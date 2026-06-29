@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { Droplets } from 'lucide-react'
 import { dailyLogFor, useStore } from '../store/useStore'
 import { todayStr } from '../lib/dates'
 
@@ -31,7 +32,7 @@ export default function WaterTracker() {
     <div className="card">
       <div className="row between" style={{ marginBottom: 12 }}>
         <div className="row" style={{ gap: 8 }}>
-          <span style={{ fontSize: 18 }}>💧</span>
+          <Droplets size={18} color="var(--accent)" />
           <b>Water</b>
           {trainedToday && <span className="pill">gym day +0.5L</span>}
         </div>

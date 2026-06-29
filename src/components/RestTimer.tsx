@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Timer } from 'lucide-react'
 
 const PRESETS = [45, 60, 90, 120]
 
@@ -86,7 +87,7 @@ export default function RestTimer({ defaultSeconds = 90, startSignal }: Props) {
     <div className="card" style={{ position: 'sticky', top: 64, zIndex: 10 }}>
       <div className="row between" style={{ marginBottom: active ? 8 : 0 }}>
         <div className="row" style={{ gap: 8 }}>
-          <span style={{ fontSize: 18 }}>⏱️</span>
+          <Timer size={18} color="var(--accent)" />
           <b>Rest timer</b>
           {active && (
             <span

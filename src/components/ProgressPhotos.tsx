@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Camera, Trash2 } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import { deletePhoto, getPhotoURL, putPhoto } from '../lib/photoStore'
 import { prettyDay, shiftDay, todayStr } from '../lib/dates'
@@ -79,7 +80,7 @@ export default function ProgressPhotos() {
       <div className="row between" style={{ marginBottom: 10 }}>
         <b>Progress photos</b>
         <button className="btn primary sm" onClick={() => fileRef.current?.click()}>
-          📸 Add photo
+          <Camera size={15} /> Add photo
         </button>
         <input
           ref={fileRef}
@@ -160,9 +161,9 @@ export default function ProgressPhotos() {
                 className="icon-btn"
                 onClick={() => remove(p)}
                 aria-label="Delete photo"
-                style={{ position: 'absolute', top: 4, right: 4, background: 'rgba(0,0,0,.55)' }}
+                style={{ position: 'absolute', top: 4, right: 4, background: 'rgba(0,0,0,.55)', color: '#fff' }}
               >
-                🗑️
+                <Trash2 size={14} />
               </button>
             </div>
           ))}

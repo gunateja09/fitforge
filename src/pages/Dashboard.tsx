@@ -27,6 +27,7 @@ import WaterTracker from '../components/WaterTracker'
 import DailyMetrics from '../components/DailyMetrics'
 import ProgressPhotos from '../components/ProgressPhotos'
 import Section from '../components/Section'
+import { Activity, CalendarCheck, Dumbbell, TrendingUp, UtensilsCrossed } from 'lucide-react'
 
 export default function Dashboard() {
   const today = todayStr()
@@ -76,7 +77,7 @@ export default function Dashboard() {
       </div>
 
       {/* ---- TODAY ---- */}
-      <Section id="daily" title="Today" icon="✅" defaultOpen>
+      <Section id="daily" title="Today" icon={<CalendarCheck size={17} />} defaultOpen>
         <Checklist />
         <WaterTracker />
         <DailyMetrics />
@@ -86,7 +87,7 @@ export default function Dashboard() {
       <Section
         id="nutrition"
         title="Nutrition"
-        icon="🍽️"
+        icon={<UtensilsCrossed size={17} />}
         defaultOpen
         hint={`${consumed.kcal}/${target.kcal} kcal · ${consumed.protein}g P`}
       >
@@ -126,7 +127,7 @@ export default function Dashboard() {
       <Section
         id="training"
         title="Training"
-        icon="🏋️"
+        icon={<Dumbbell size={17} />}
         defaultOpen
         hint={`${todayStrength.length + todayCardio.length} logged today`}
       >
@@ -163,7 +164,7 @@ export default function Dashboard() {
       </Section>
 
       {/* ---- BODY & PROGRESS ---- */}
-      <Section id="body" title="Body & progress" icon="📈" defaultOpen={false}>
+      <Section id="body" title="Body & progress" icon={<TrendingUp size={17} />} defaultOpen={false}>
         <div className="card">
           <div className="row between" style={{ marginBottom: 10 }}>
             <b>Bodyweight trend</b>
@@ -201,7 +202,7 @@ export default function Dashboard() {
       </Section>
 
       {/* ---- WEEKLY ---- */}
-      <Section id="weekly" title="This week" icon="📊" defaultOpen={false}>
+      <Section id="weekly" title="This week" icon={<Activity size={17} />} defaultOpen={false}>
         <WeeklySummary />
       </Section>
     </div>

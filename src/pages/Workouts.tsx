@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { ClipboardList, Dumbbell, HeartPulse, Timer, Trash2 } from 'lucide-react'
 import { lastSessionFor, setsVolume, useStore } from '../store/useStore'
 import { estimateCardioKcal } from '../lib/calc'
 import { prettyDay, todayStr } from '../lib/dates'
@@ -39,10 +40,10 @@ export default function Workouts() {
 
       <div className="tabs">
         <button className={`tab ${tab === 'strength' ? 'active' : ''}`} onClick={() => setTab('strength')}>
-          🏋️ Strength
+          <Dumbbell size={15} /> Strength
         </button>
         <button className={`tab ${tab === 'cardio' ? 'active' : ''}`} onClick={() => setTab('cardio')}>
-          🏃 Cardio
+          <HeartPulse size={15} /> Cardio
         </button>
       </div>
 
@@ -115,7 +116,7 @@ function Strength({ date }: { date: string }) {
             </div>
           </div>
           <button className="btn primary sm" onClick={() => setShowTemplates(true)}>
-            📋 Templates
+            <ClipboardList size={15} /> Templates
           </button>
         </div>
       </div>
@@ -242,7 +243,7 @@ function ExerciseCard({
             </span>
           )}
           <button className="icon-btn" onClick={onRemove} aria-label="Remove exercise">
-            🗑️
+            <Trash2 size={15} />
           </button>
         </div>
       </div>
@@ -287,7 +288,7 @@ function ExerciseCard({
           <span className="faint">reps</span>
           <div className="spacer" />
           <button className="btn sm ghost" title="Start rest timer" onClick={onRest}>
-            ⏱️
+            <Timer size={15} />
           </button>
           {entry.sets.length > 1 && (
             <button className="icon-btn" onClick={() => removeSet(i)} aria-label="Remove set">
@@ -385,7 +386,7 @@ function Cardio({ date }: { date: string }) {
                 </div>
               </div>
               <button className="icon-btn" onClick={() => removeCardio(e.id)} aria-label="Remove">
-                🗑️
+                <Trash2 size={15} />
               </button>
             </div>
           </div>

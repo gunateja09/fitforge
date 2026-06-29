@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Pencil, Trash2 } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import Modal from '../components/Modal'
 import type { Food } from '../types'
@@ -134,10 +135,10 @@ export default function Foods() {
                 </div>
               </div>
               <button className="icon-btn" onClick={() => openEdit(f)} aria-label="Edit">
-                ✏️
+                <Pencil size={15} />
               </button>
               <button className="icon-btn" onClick={() => removeFood(f.id)} aria-label="Delete">
-                🗑️
+                <Trash2 size={15} />
               </button>
             </div>
           ))}

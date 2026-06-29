@@ -3,7 +3,7 @@ import { useState, type ReactNode } from 'react'
 interface Props {
   id: string
   title: string
-  icon?: string
+  icon?: ReactNode
   /** optional summary text shown on the header when collapsed */
   hint?: string
   defaultOpen?: boolean
@@ -53,7 +53,9 @@ export default function Section({ id, title, icon, hint, defaultOpen = true, chi
         >
           ▶
         </span>
-        {icon && <span style={{ fontSize: 16 }}>{icon}</span>}
+        {icon && (
+          <span style={{ display: 'inline-flex', color: 'var(--accent)' }}>{icon}</span>
+        )}
         <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.01em' }}>{title}</span>
         {!open && hint && (
           <span className="faint" style={{ fontSize: 12, marginLeft: 'auto' }}>

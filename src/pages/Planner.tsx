@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Copy, Trash2 } from 'lucide-react'
 import { useStore, useFoodMap } from '../store/useStore'
 import { effectiveTargets, roundMacros, totalMacros } from '../lib/calc'
 import { dayNum, isToday, prettyDay, shiftDay, shortDay, todayStr, weekDays } from '../lib/dates'
@@ -97,7 +98,7 @@ export default function Planner() {
               title="Copy yesterday's plan to this day"
               onClick={() => copyDay(shiftDay(selected, -1), selected)}
             >
-              📋 copy prev
+              <Copy size={14} /> copy prev
             </button>
             <button className="btn sm primary" onClick={() => setModalMeal('breakfast')}>
               + Add food
@@ -125,7 +126,7 @@ export default function Planner() {
                       <div className="sub">{e.qty} {food.unit}</div>
                     </div>
                     <button className="icon-btn" onClick={() => removeFoodEntry(e.id)} aria-label="Remove">
-                      🗑️
+                      <Trash2 size={15} />
                     </button>
                   </div>
                 )
